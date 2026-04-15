@@ -10,15 +10,15 @@
     <div class="container">
         <div class="account__main__wrapper">
             <div class="account__form__wrapper sign-up">
-                <h2>Register to Flappybet</h2>
+                <h2>Sign up</h2>
                 <br>
                 <form class="account__form form row g-4" method="post">
                 
                     {% csrf_token %}
 
-                    {% if form.errors %}
+                    {% if forms.errors %}
 					<div class="error">
-						{{form.errors}}
+						{{forms.errors}}
 					</div>
 					{% endif %}
 					{% for message in messages %}

@@ -21,10 +21,10 @@
           </p>
           {% if not request.user.is_authenticated %}
           <div class="button-wrapper">
-            <a href="#" class="cmn--btn active btn--lg"
-              ><i class="#"></i> Play Now</a
+            <a href="{% url 'register' %}" class="cmn--btn active btn--lg"
+              ><i class="#"></i>Create Account</a
             >
-            <a href="{% url 'register' %}" class="cmn--btn btn--lg">Sign In</a>
+            <a href="{% url 'login' %}" class="cmn--btn btn--lg">Sign In</a>
           </div>
           {% endif %}
           <img
@@ -94,8 +94,7 @@
           <div class="section-header text-center">
             <h2 class="section-header__title">Top Awesome Games</h2>
             <p>
-              A casino is a facility for certain types of gambling. Casinos are
-              often built combined with hotels, resorts,.
+              Experience the thrill, excitement, and endless possibilities at our casino—where luck meets opportunity.
             </p>
           </div>
         </div>
@@ -106,15 +105,15 @@
             <div class="game-inner">
               <div class="game-item__thumb">
                 <img
-                  src="{% static 'assets/images/game/item2.png' %}"
+                  src="{% static 'assets/images/game/slot.png' %}"
                   alt="game"
                 />
               </div>
               <div class="game-item__content">
-                <h4 class="title">Roulette</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
+                <h4 class="title">Minislot</h4>
+                <p class="invest-info">Possible Winnings</p>
+                <p class="invest-amount">₱1,000,000</p>
+                <a href="{% url 'games:wrath_of_olympus' %}" class="cmn--btn active btn--md radius-0"
                   >Play Now</a
                 >
               </div>
@@ -127,15 +126,15 @@
             <div class="game-inner">
               <div class="game-item__thumb">
                 <img
-                  src="{% static 'assets/images/game/item1.png' %}"
+                  src="{% static 'assets/images/game/spin.png' %}"
                   alt="game"
                 />
               </div>
               <div class="game-item__content">
-                <h4 class="title">Zero To Ninty</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
+                <h4 class="title">Spin da bottle</h4>
+                <p class="invest-info">Possible Winnings</p>
+                <p class="invest-amount">₱1,000,000</p>
+                <a href="{% url 'games:candy_slot_machine' %}" class="cmn--btn active btn--md radius-0"
                   >Play Now</a
                 >
               </div>
@@ -148,15 +147,15 @@
             <div class="game-inner">
               <div class="game-item__thumb">
                 <img
-                  src="{% static 'assets/images/game/item3.png' %}"
+                  src="{% static 'assets/images/game/flip.png' %}"
                   alt="game"
                 />
               </div>
               <div class="game-item__content">
-                <h4 class="title">Number Buy</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
+                <h4 class="title">Coin Flip</h4>
+                <p class="invest-info">Possible Winnings</p>
+                <p class="invest-amount">₱1,000,000</p>
+                <a href="#" class="cmn--btn active btn--md radius-0"
                   >Play Now</a
                 >
               </div>
@@ -169,100 +168,16 @@
             <div class="game-inner">
               <div class="game-item__thumb">
                 <img
-                  src="{% static 'assets/images/game/item4.png' %}"
+                  src="{% static 'assets/images/game/rock.png' %}"
                   alt="game"
                 />
               </div>
               <div class="game-item__content">
-                <h4 class="title">Roulette</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
-                  >Play Now</a
-                >
-              </div>
-            </div>
-            <div class="ball"></div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6">
-          <div class="game-item">
-            <div class="game-inner">
-              <div class="game-item__thumb">
-                <img
-                  src="{% static 'assets/images/game/item5.png' %}"
-                  alt="game"
-                />
-              </div>
-              <div class="game-item__content">
-                <h4 class="title">Card Game</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
-                  >Play Now</a
-                >
-              </div>
-            </div>
-            <div class="ball"></div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6">
-          <div class="game-item">
-            <div class="game-inner">
-              <div class="game-item__thumb">
-                <img
-                  src="{% static 'assets/images/game/item6.png' %}"
-                  alt="game"
-                />
-              </div>
-              <div class="game-item__content">
-                <h4 class="title">Dice Rolling</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
-                  >Play Now</a
-                >
-              </div>
-            </div>
-            <div class="ball"></div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6">
-          <div class="game-item">
-            <div class="game-inner">
-              <div class="game-item__thumb">
-                <img
-                  src="{% static 'assets/images/game/item2.png' %}"
-                  alt="game"
-                />
-              </div>
-              <div class="game-item__content">
-                <h4 class="title">Card Game</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
-                  >Play Now</a
-                >
-              </div>
-            </div>
-            <div class="ball"></div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6">
-          <div class="game-item">
-            <div class="game-inner">
-              <div class="game-item__thumb">
-                <img
-                  src="{% static 'assets/images/game/item6.png' %}"
-                  alt="game"
-                />
-              </div>
-              <div class="game-item__content">
-                <h4 class="title">Dice Rolling</h4>
-                <p class="invest-info">Invest Limit</p>
-                <p class="invest-amount">$10.49 - $1,000</p>
-                <a href="#0" class="cmn--btn active btn--md radius-0"
-                  >Play Now</a
+                <h4 class="title">Rock Paper Scissors</h4>
+                <p class="invest-info">Possible Winnings</p>
+                <p class="invest-amount">₱1,000,000</p>
+                <a href="#" class="cmn--btn active btn--md radius-0"
+                  >Coming Soon</a
                 >
               </div>
             </div>

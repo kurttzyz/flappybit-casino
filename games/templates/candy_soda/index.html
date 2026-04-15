@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!--
+      viewport meta is critical for mobile:
+      - width=device-width  : use the real device pixel width
+      - initial-scale=1.0   : no zoom on load
+      - maximum-scale=1.0   : prevent pinch-zoom breaking layout
+      - user-scalable=no    : locks zoom so the canvas stays fitted
+      - viewport-fit=cover  : fills the safe area on notched iPhones
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+  <!-- iOS fullscreen / status bar config -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Android fullscreen -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>Candy Soda</title>
+  <link rel="shortcut icon" href="{% static 'candy_soda/images/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'candy_soda/css/style.css' %}">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* Remove the blue flash on tap that appears on Android */
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;           /* no scroll bars on mobile */
+      background: #000;
+      /* Prevent pull-to-refresh and elastic overscroll on mobile browsers */
+      overscroll-behavior: none;
+      /* Block default touch gestures so Phaser handles all pointer input */
+      touch-action: none;
+    }
+
+    /* Wrapper — fills the full viewport and centers the canvas */
+    #slot-game-phaser3 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Phaser injects the canvas here.
+       Phaser's Scale Manager sets its width/height in CSS automatically,
+       so we only need to make sure it is a block element. */
+    #slot-game-phaser3 canvas {
+      display: block;
+      /* Block default touch so Phaser's pointer events fire cleanly */
+      touch-action: none;
+      /* Prevent long-press context menu on mobile */
+      -webkit-user-select: none;
+      user-select: none;
+      /* Crisp pixels — avoids blurry canvas on high-DPI screens */
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    /* ── Rotate-to-landscape hint ──────────────────────────────────────────
+       Shown automatically on portrait phones via the media query below.
+       The game is 16:9 landscape — portrait makes everything tiny.        */
+    #rotate-hint {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.90);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: #fff;
+      font-family: 'PT Serif', serif;
+      font-size: 17px;
+      text-align: center;
+      padding: 32px;
+    }
+
+    #rotate-hint svg {
+      width: 60px;
+      height: 60px;
+      animation: spin-hint 2s ease-in-out infinite;
+    }
+
+    @keyframes spin-hint {
+      0%, 100% { transform: rotate(0deg); }
+      50%       { transform: rotate(90deg); }
+    }
+
+    #rotate-hint button {
+      margin-top: 4px;
+      padding: 10px 24px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 6px;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Show the hint only on narrow portrait screens */
+    @media screen and (orientation: portrait) and (max-width: 600px) {
+      #rotate-hint {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Rotate-to-landscape hint (CSS shows/hides it automatically) -->
+  <div id="rotate-hint" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"
+         stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2"/>
+      <path d="M2 9l3-3 3 3"/>
+      <path d="M22 15l-3 3-3-3"/>
+    </svg>
+    <span>Rotate your device for the best experience</span>
+    <button onclick="document.getElementById('rotate-hint').style.display='none'">
+      Play anyway
+    </button>
+  </div>
+
+  <div id="slot-game-phaser3"></div>
+
+  <!-- Pass Django static URL base to JavaScript -->
+  <script>
+    window.STATIC_URL = "{% static '' %}";
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+  </script>
+
+  <!-- Phaser 3 -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+
+  <!-- 1. Global data (no dependencies) -->
+  <script src="{% static 'candy_soda/js/options.js' %}"></script>
+  <script src="{% static 'candy_soda/js/config.js' %}"></script>
+
+  <!-- 2. Base classes (depend on Options, Config, Phaser) -->
+  <script src="{% static 'candy_soda/js/basic/Sprite.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Audio.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Container.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Time.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Credit.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Info.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Coin.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Line.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Maxbet.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Spin.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/Tween.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/BaseSpin.js' %}"></script>
+  <script src="{% static 'candy_soda/js/basic/AutoSpin.js' %}"></script>
+
+  <!-- 3. Scenes (depend on all base classes) -->
+  <script src="{% static 'candy_soda/js/main/PreloadScene.js' %}"></script>
+  <script src="{% static 'candy_soda/js/main/BootScene.js' %}"></script>
+  <script src="{% static 'candy_soda/js/main/GameScene.js' %}"></script>
+
+  <!-- 4. Entry point (wires scenes into Config and starts Phaser) -->
+  <script src="{% static 'candy_soda/js/index.js' %}"></script>
+
+</body>
+</html>

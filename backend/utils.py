@@ -11,6 +11,6 @@ TokenGenerator = passwordgenerator()
 
 
 class PasswordReset(PasswordResetView):
-    from_email= 'TestMail <info.testmail@zohomail.com>'
+    from_email= 'Flappybit <support@flappybit.com>'
     html_email_template_name = 'email/password_reset_email.html'
     subject_template_name = 'email/password_reset_subject.txt'

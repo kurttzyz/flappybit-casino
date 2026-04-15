@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wrath_of_olympus\</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'wrath_of_olympus/css/style.css' %}" />
+</head>
+<body>
+
+  <!-- Pass Django static URL base to JavaScript -->
+  <script>
+    window.STATIC_URL = "{% static '' %}";
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+  </script>
+
+  <div id="game-wrapper">
+
+    <!-- Phaser mounts canvas here -->
+    <div id="phaser-container"></div>
+
+    {% comment %} <!-- Win message popup (shown by UIScene) -->
+    <div id="win-message">
+      <div class="win-label">WIN!</div>
+      <div class="win-amount" id="win-message-amount">+0</div>
+    </div> {% endcomment %}
+  </div>
+
+  <!-- Phaser 3 -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+
+  <!-- Slot game modules (order matters) -->
+  <script src="{% static 'wrath_of_olympus/js/config/symbols.js' %}"></script>
+  <script src="{% static 'wrath_of_olympus/js/config/reels.js' %}"></script>
+  <script src="{% static 'wrath_of_olympus/js/utils/slotEngine.js' %}"></script>
+  <script src="{% static 'wrath_of_olympus/js/utils/soundManager.js' %}"></script>
+  <script src="{% static 'wrath_of_olympus/js/scenes/BootScene.js' %}"></script>
+  <script src="{% static 'wrath_of_olympus/js/scenes/GameScene.js' %}"></script>
+  <script src="{% static 'wrath_of_olympus/js/scenes/UIScene.js' %}"></script>
+  <script src="{% static 'wrath_of_olympus/js/main.js' %}"></script>
+
+</body>
+</html>

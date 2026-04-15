@@ -42,7 +42,7 @@
         <div class="col-lg-6 col-xl-4 col-md-6 col-sm-10">
             <div class="dashboard__card">
                 <div class="dashboard__card-content">
-                     0 
+                    <h2 class="price">{% if balancj %} ₱{{balance}} {% else %} ₱0 {% endif %}</h2>
                     <p class="info">VALID REFERRAL</p>
                     
                 </div>
@@ -55,7 +55,7 @@
         <div class="col-lg-6 col-xl-4 col-md-6 col-sm-10">
             <div class="dashboard__card">
                 <div class="dashboard__card-content">
-                    ₱0 
+                    <h2 class="price">{% if balancj %} ₱{{balance}} {% else %} ₱0 {% endif %}</h2>
                     <p class="info">REFERRAL EARNINGS</p>
                     <button>Claim</button>
                 </div>

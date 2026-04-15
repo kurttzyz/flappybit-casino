@@ -50,10 +50,12 @@
                     ><img src="{% static 'assets/images/logo.png' %}" style="width: 300px; height: 200px;" alt="logo"
                 /></a>
                 </div>
+                {% if request.user.is_authenticated %}
                 <div class="balance ms-auto">{% if balance %} ₱{{balance}} {% else %} ₱0.00 {% endif %}</div>
+                {% endif %}
                 <ul class="menu text-center">
                     <li>
-                        <a href="#"
+                        <a href="{% url 'moregames' %}"
                         >Games
                         <span class="badge badge--sm badge--base text-dark"
                             >NEW</span

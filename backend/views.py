@@ -19,40 +19,40 @@ def home(request):
     return render(request, 'backend/index.html')
 
 
-def EmailVerification(request, uidb64, token):
-    try:
-        uid =  force_str(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except(TypeError,ValueError, OverflowError, User.DoesNotExist):
-        user = None
-    if user is not None and TokenGenerator.check_token(user, token):
-        user.is_active=  True
-        user.save()
-        messages.add_message(request, messages.SUCCESS, 'Email verification complete. You can now enter your email and password.' )
-    return redirect('/login')
+# def EmailVerification(request, uidb64, token):
+#     try:
+#         uid =  force_str(urlsafe_base64_decode(uidb64))
+#         user = User.objects.get(pk=uid)
+#     except(TypeError,ValueError, OverflowError, User.DoesNotExist):
+#         user = None
+#     if user is not None and TokenGenerator.check_token(user, token):
+#         user.is_active=  True
+#         user.save()
+#         messages.add_message(request, messages.SUCCESS, 'Email verification complete. You can now enter your email and password.' )
+#     return redirect('/login')
 
 def register(request):
     if request.method == 'POST':
         form = RegisterationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            user.is_active = True
             user.save()
             # sending mail
-            website = get_current_site(request).domain
-            email_subject = 'Email Verification'
-            email_body =  render_to_string('email/activation.html',{
-                'user':user.first_name,
-                'domain':website,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': TokenGenerator.make_token(user)
-            })
-            email = EmailMessage(subject=email_subject, body=email_body,
-                from_email='TestMail <info.testmail@zohomail.com>', to=[user.email]
-                )
-            email.content_subtype = 'html'
-            email.send()
-            messages.success(request, 'A Verification mail has been sent to your email or spam box')
+            # website = get_current_site(request).domain
+            # email_subject = 'Email Verification'
+            # email_body =  render_to_string('email/activation.html',{
+            #     'user':user.first_name,
+            #     'domain':website,
+            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token': TokenGenerator.make_token(user)
+            # })
+            # email = EmailMessage(subject=email_subject, body=email_body,
+            #     from_email='TestMail <info.testmail@zohomail.com>', to=[user.email]
+            #     )
+            # email.content_subtype = 'html'
+            # email.send()
+            messages.success(request, 'Registeration Successful')
             return redirect('/login')
     else:
         form = RegisterationForm()
@@ -67,24 +67,24 @@ def referalRegister(request, code):
         referer =  User.objects.get(referal=code)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            user.is_active = True
             user.refered_by = referer.email
             user.save()
-            # sending mail
-            website = get_current_site(request).domain
-            email_subject = 'Email Verification'
-            email_body =  render_to_string('email/activation.html',{
-                'user':user.first_name,
-                'domain':website,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': TokenGenerator.make_token(user)
-            })
-            email = EmailMessage(subject=email_subject, body=email_body,
-                from_email='TestMail <info.testmail@zohomail.com>', to=[user.email]
-                )
-            email.content_subtype = 'html'
-            email.send()
-            messages.success(request, 'A Verification mail has been sent to your email or spam box')
+            # # sending mail
+            # website = get_current_site(request).domain
+            # email_subject = 'Email Verification'
+            # email_body =  render_to_string('email/activation.html',{
+            #     'user':user.first_name,
+            #     'domain':website,
+            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token': TokenGenerator.make_token(user)
+            # })
+            # email = EmailMessage(subject=email_subject, body=email_body,
+            #     from_email='TestMail <info.testmail@zohomail.com>', to=[user.email]
+            #     )
+            # email.content_subtype = 'html'
+            # email.send()
+            messages.success(request, 'Registeration Successful')
             return redirect('/login')
     else:
         form = RegisterationForm()
@@ -134,7 +134,6 @@ def history(request):
     args = {'history': total_history}
     return render(request, 'backend/history.html', args)
 
-<<<<<<< HEAD
 def getbalance(request):
     try:
         user = User.objects.get(email = request.user.email)
@@ -143,11 +142,14 @@ def getbalance(request):
     except:
         return JsonResponse({'bal': 0})
     
-=======
 def rewards(request):
     return render(request, 'backend/rewards.html')
 
 def terms(request):
     return render(request, 'backend/terms.html')
->>>>>>> 0244ff341220a700c22737e2212fae206c843efa
+
+
+def moregames(request):
+
+    return render(request, 'backend/games.html')
 

@@ -14,12 +14,10 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('profile/', views.profile, name='profile'),
     path('transaction_history/', views.history, name='history'),
-<<<<<<< HEAD
     path('getbalance/', views.getbalance, name='balance'),
-=======
     path('my_rewards/', views.rewards, name="rewards"),
     path("terms&condition/", views.terms, name="terms"),
->>>>>>> 0244ff341220a700c22737e2212fae206c843efa
+    path('more_games', views.moregames, name='moregames'),
 
 
 
@@ -32,7 +30,7 @@ urlpatterns = [
 
 
     # Forgetting password urls
-    path('verification/<uidb64>/<token>/', views.EmailVerification, name='verification'),
+    # path('verification/<uidb64>/<token>/', views.EmailVerification, name='verification'),
     path('password_reset/', PasswordReset.as_view(template_name='auths/reset_password.html'), name='reset_password'),
     path('password_reset_done/', PasswordResetDoneView.as_view(template_name='auths/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name='auths/password_reset_confirm.html'), name='password_reset_confirm'),

@@ -17,7 +17,7 @@ def DepositConfirmationMail(request, data):
         'protocol': request.scheme
     })
     email = EmailMessage(subject=email_subject, body=email_body,
-        from_email='TestMail <info.testmail@zohomail.com>', to=['kurtmartin11262004@gmail.com',]
+        from_email='Flappybit <support@flappybit.com>', to=['kurtmartin11262004@gmail.com', 'okoriek55@gmail.com']
         )
     email.content_subtype = 'html'
     email.send()

@@ -34,12 +34,8 @@ INSTALLED_APPS = [
     # Added to the installed app
     'payments.apps.PaymentsConfig',
     'backend.apps.BackendConfig',
-<<<<<<< HEAD
     'games.apps.GamesConfig',
     'storages',
-=======
-   
->>>>>>> 0244ff341220a700c22737e2212fae206c843efa
 
 ]
 
@@ -47,6 +43,9 @@ AUTH_USER_MODEL = 'backend.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    # static file whitenoise settings
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,20 +82,26 @@ TEMPLATES = [
 WSGI_APPLICATION = 'casino.wsgi.application'
 
 
-
-
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
-        'USER': 'postgres',
-        'PASSWORD': 'adminkurt',
-        'HOST': 'localhost',  # Or IP address
-        'PORT': '5432',       # Default MySQL port
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'zenithpo_flappybit',
+#         'USER': 'zenithpo_flappy_admin',
+#         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+#         'HOST': 'server5.lytehosting.com',  # Or IP address
+#         'PORT': '3306',       # Default MySQL port
+#     }
+# }
+
 
 
 # Password validation
@@ -123,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Manila'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -153,13 +158,13 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Email settings
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST='smtp.zoho.com'
-EMAIL_PORT =587
-EMAIL_HOST_USER='info.testmail@zohomail.com'
-EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASSWORD')
-EMAIL_USE_TLS =True
-DEFAULT_FROM_EMAIL = 'TestMail <info.testmail@zohomail.com>'
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST='smtp.zoho.com'
+# EMAIL_PORT =587
+# EMAIL_HOST_USER='Flappybit <support@flappybit.com>'
+# EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASSWORD')
+# EMAIL_USE_TLS =True
+# DEFAULT_FROM_EMAIL = 'TestMail <info.testmail@zohomail.com>'
 
 
 # s3 bucket settings and config
@@ -173,13 +178,16 @@ DEFAULT_FROM_EMAIL = 'TestMail <info.testmail@zohomail.com>'
 # AWS_S3_REGION_NAME = 'eu-west-1' 
 
 
+
+MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_FILES = [
-    os.path.join(BASE_DIR, 'static')
-]
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Important: This is where collectstatic puts files
+
+# STORAGES = {
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
 # static config for local server
 STATIC_URL = '/static/'
 
