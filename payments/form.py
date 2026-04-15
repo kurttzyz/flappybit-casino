@@ -4,14 +4,16 @@ from .models import Deposit, Withdrawal
 class PaymentForm(forms.ModelForm):
     class Meta:
         model = Deposit
-        fields = ['amount', 'payment_method']
+        fields = ['amount', 'payment_method', 'promo']
         widgets = {
             'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter amount'}),
-            'payment_method': forms.Select(attrs={'class': 'form-control'}),
+            'payment_method': forms.Select(attrs={'class': 'form-control', 'placeholder' : 'Choose your payment method'}),
+            'promo': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Choose your type of deposit method'}),
         }
         labels = {
             'amount': 'Payment Amount',
             'payment_method': 'Payment Method',
+            'promo' : 'Promo'
         }
 
     def clean_amount(self):

@@ -13,9 +13,12 @@ from django.contrib.auth.views import (
 urlpatterns = [
     path('', views.home, name='home'),
     path('profile/', views.profile, name='profile'),
+    path('getbalance/', views.getbalance, name='balance'),
     path('transaction_history/', views.history, name='history'),
     path('getbalance/', views.getbalance, name='balance'),
     path('my_rewards/', views.rewards, name="rewards"),
+    path('claim-reward/', views.claim_reward_api, name='claim_reward_api'),
+    path('claim-referral-income/', views.claim_referral_income, name='claim-referral-income'),
     path("terms&condition/", views.terms, name="terms"),
     path('more_games', views.moregames, name='moregames'),
 
@@ -26,7 +29,7 @@ urlpatterns = [
     path('login/', views.loginview, name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', views.register, name='register'),
-    path('register/<str:referal>', views.referalRegister, name='referal'),
+
 
 
     # Forgetting password urls

@@ -15,3 +15,4 @@ class AccountAdmin(UserAdmin):
     list_filter = ('email',)
     fieldsets = ()
 admin.site.register( User, AccountAdmin)
+admin.site.register(Banner)

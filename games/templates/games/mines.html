@@ -1,0 +1,46 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'minesweeper/main.css' %}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappybit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+  <div class="option">
+    <i class="fa-solid fa-volume-high fa-2x" id="sound"></i>
+    <a href="/"><i class="fa-solid fa-home" style="font-size:36px" id="home"></i></a>
+      <p style="color:white"><strong id="wallet-balance">₱ {{ balance }}</strong></p>
+    <a href="/#games"><i class="material-icons" style="font-size:48px; color:white">&#xe5c3;</i></a>
+    <i class="fa-solid fa-arrows-rotate fa-2x" id="reload"></i>
+  </div>
+    <p style="color:white">Bet: <strong id="betted-amount">₱ {{ user.amount }}</strong></p>
+    <center>
+    <form id="bet-form">
+        {% csrf_token %}
+        <input type="number" name="bet" placeholder="Enter your bet" required>
+        <button type="submit">Start Game</button>
+    </form>
+
+    <div id="game-board" 
+        data-mine-image-url="{% static 'minesweeper/bomb.jpg' %}" 
+        data-coin-image-url="{% static 'minesweeper/coin2.jpg' %}">
+    </div>
+    
+    <p style="color:white;">Potential Winnings: <strong id="potential-winnings">₱ 0.00</strong></p>
+    <button class="btn btn-primary mt-2" id="claim-reward-btn">Claim Reward</button>
+  </center>
+
+
+    <audio id="card-sound" src="{% static 'minesweeper/cardflip.mp3' %}"></audio>
+    <audio id="bomb-sound" src="{% static 'minesweeper/bomb.mp3' %}"></audio>
+    <script src="{% static 'minesweeper/main.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/82d49a62e0.js" crossorigin="anonymous"></script>
+</body>
+</html>
+{% endblock %}

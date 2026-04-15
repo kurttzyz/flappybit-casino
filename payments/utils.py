@@ -8,8 +8,10 @@ def DepositConfirmationMail(request, data):
     email_body =  render_to_string('email/depositmail.html',{
         'first_name':data.user.first_name,
         'last_name': data.user.last_name,
+        'wallet': data.payment_method.name,
         'amount': data.amount,
         'reference': data.reference_number,
+        'deposit_type': data.promo,
         'email': data.user.email,
         'date': data.payment_method,
         'pk': data.pk,

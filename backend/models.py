@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permission, PermissionsMixin
 from django.utils.crypto import get_random_string
+import uuid
+from django.conf import settings
 # Create your models here.
 
 class MyUserManager(BaseUserManager):
@@ -43,22 +45,27 @@ class MyUserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
-    first_name    = models.CharField(max_length=100, blank=True, null=True)
-    last_name    = models.CharField(max_length=100, blank=True, null=True)
-    email         = models.EmailField(max_length=100, unique=True)
-    referal = models.CharField(max_length=20, unique=True, blank=True, null=True)
-    refered_by = models.CharField(max_length=50, blank=True, null=True)
-    balance = models.IntegerField(default=0)
-    mobile_number = models.CharField(max_length=20, blank=True, null=True)
+    first_name        = models.CharField(max_length=100, blank=True, null=True)
+    last_name         = models.CharField(max_length=100, blank=True, null=True)
+    email             = models.EmailField(max_length=100, unique=True)
+    referrals         = models.ManyToManyField('self', symmetrical=False, related_name='referred_users')
+    referral_code     = models.UUIDField(default=uuid.uuid4, unique=True)
+    referred_by       = models.ForeignKey( settings.AUTH_USER_MODEL,  null=True, blank=True, on_delete=models.SET_NULL, related_name='referral')
+    reward_per_referral = models.DecimalField(max_digits=5, decimal_places=2, default=50.00)
+    referral_income   = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
+    balance           = models.IntegerField(default=0)
+    mobile_number     = models.CharField(max_length=20, blank=True, null=True)
+    total_turnover    = models.DecimalField(max_digits=20, decimal_places=2, default=0)
+    required_turnover = models.DecimalField(max_digits=20, decimal_places=2, default=0)
 
-    
-    
+       
     date_joined   = models.DateTimeField(auto_now_add=True) 
     last_login    = models.DateTimeField(auto_now_add=True)   
     is_admin      = models.BooleanField(default=False)
     is_staff      = models.BooleanField(default=False)
     is_active     = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
+    has_received_referral_reward = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name','last_name']
@@ -79,4 +86,32 @@ class User(AbstractBaseUser, PermissionsMixin):
     def has_module_perms(self, add_label):
         return True
     
+    def claim_referral_income(self):
+    
+        if self.referral_income > 0:
+            self.balance += self.referral_income
 
+            self.referral_income = 0
+            self.save()
+
+
+            return True  # Successfully claimed
+        return False  # No income to claim
+    
+
+class Banner(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, help_text="Title of the banner")
+    description = models.TextField(blank=True, null=True, help_text="Optional description for the banner")
+    image = models.ImageField(upload_to='banners/', help_text="Upload a banner image")
+    link = models.URLField(blank=True, null=True, help_text="Optional link for the banner")
+    is_active = models.BooleanField(default=True, help_text="Uncheck to hide this banner")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Banner"
+        verbose_name_plural = "Banners"
+
+    def __str__(self):
+        return self.title

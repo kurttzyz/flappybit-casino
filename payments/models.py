@@ -2,6 +2,8 @@ from django.db import models
 from backend.models import User
 from django.utils.crypto import get_random_string
 from django.utils import timezone
+from decimal import Decimal
+from games.models import *
 # Create your models here.
 
 
@@ -21,10 +23,16 @@ class Deposit(models.Model):
         ('Declined', 'Declined'),
     ]
 
+    PROMO_CHOICES = [
+        ('Promo', 'Promo'),
+        ('Regular', 'Regular'),
+    ]
+
     user             = models.ForeignKey(User, on_delete=models.CASCADE)
     amount           = models.DecimalField(max_digits=10, decimal_places=2)
     reference_number = models.CharField(max_length=50, default=get_random_string(length=20))
     status           = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+    promo            = models.CharField(max_length=20, choices=PROMO_CHOICES)
     payment_method   = models.ForeignKey(PaymentMethod, on_delete=models.DO_NOTHING)
     date_created     = models.DateTimeField(auto_now_add=True)
 
@@ -81,3 +89,12 @@ class TransactionHistory(models.Model):
 
     def __str__(self):
         return f"Reference: {self.reference_number} Status: {self.status}"
+    
+
+
+
+
+
+
+
+   

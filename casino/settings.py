@@ -22,6 +22,15 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://f731-2001-4455-3e8-ff00-e5ce-766f-4f25-a3b7.ngrok-free.app',  # Allow all ngrok subdomains
+]
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+
+
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
@@ -35,7 +44,17 @@ INSTALLED_APPS = [
     'payments.apps.PaymentsConfig',
     'backend.apps.BackendConfig',
     'games.apps.GamesConfig',
+=======
+<<<<<<< HEAD
+    'games.apps.GamesConfig',
     'storages',
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 6b2e3bd1e212ea7a3d823cbdd13bc045dadcc523
+   
+>>>>>>> 0244ff341220a700c22737e2212fae206c843efa
+>>>>>>> 8fd357047b463a75560c6f6c577a5981f80b24cf
 
 ]
 
@@ -84,8 +103,17 @@ WSGI_APPLICATION = 'casino.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+=======
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'flappybit3',
+        'USER': 'postgres',
+        'PASSWORD': 'adminkurt',
+        'HOST': 'localhost',  # Or IP address
+        'PORT': '5432',       # Default MySQL port
+>>>>>>> 8fd357047b463a75560c6f6c577a5981f80b24cf
     }
 }
 

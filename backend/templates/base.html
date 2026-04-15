@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Flappybet</title>
+        <title>Flappybit</title>
         <link
         rel="icon"
         type="image/png"    
@@ -21,6 +21,14 @@
         <link rel="stylesheet" href="{% static 'assets/css/line-awesome.min.css' %}" />
         <link rel="stylesheet" href="{% static 'assets/css/lib/animate.css' %}" />
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+        <!--GAME-->
+        <link rel="stylesheet" href="{% static 'css/game/mines-style.css' %}">
+        <link rel="icon" href="{% static 'images/flappybet.jpg' %}" type="image/x-icon">
+
+        <!-- font awesome link-->
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
         
 
         <!-- Plugin Link -->
@@ -48,14 +56,23 @@
                 <div class="logo">
                 <a href="{% url 'home' %}"
                     ><img src="{% static 'assets/images/logo.png' %}" style="width: 300px; height: 200px;" alt="logo"
-                /></a>
+                /> </a>
+                
                 </div>
                 {% if request.user.is_authenticated %}
+<<<<<<< HEAD
                 <div class="balance ms-auto">{% if balance %} ₱{{balance}} {% else %} ₱0.00 {% endif %}</div>
                 {% endif %}
                 <ul class="menu text-center">
                     <li>
                         <a href="{% url 'moregames' %}"
+=======
+                <div class="balance ms-auto"><i class="las la-wallet"></i>{% if balance %} ₱{{balance}} {% else %} ₱0.00 {% endif %}</div>
+                {% endif %}
+                <ul class="menu text-center">
+                    <li>
+                        <a href="/#games"
+>>>>>>> 8fd357047b463a75560c6f6c577a5981f80b24cf
                         >Games
                         <span class="badge badge--sm badge--base text-dark"
                             >NEW</span
@@ -71,7 +88,7 @@
 
                 
                     <li>
-                        <a href="#">Contact Us</a>
+                        <a href="/#contact_us">Contact Us</a>
                     </li>
 
                     {% if request.user.is_authenticated %}
@@ -85,7 +102,7 @@
 
                     {% if not request.user.is_authenticated%}
                     <li>
-                        <a href="{% url 'login' %}" class="cmn--btn btn--md d-none d-lg-block">Sign In</a>
+                        <a href="{% url 'login' %}" class="cmn--btn btn--md d-none d-lg-block">Log In</a>
                     </li>
                     {% else %}
                     <form action="{% url 'logout' %}" method="post">
@@ -106,7 +123,7 @@
                 <a
                     href="{% url 'login' %}"
                     class="cmn--btn active btn--md d-none d-sm-block"
-                    >Sign In</a
+                    >Log In</a
                 >
                 </div>
             </div>
@@ -153,8 +170,8 @@
                 class="footer-wrapper d-flex flex-wrap justify-content-center align-items-center text-center"
             >
                 <p class="copyright text-white">
-                Copyrights &copy; 2025 All Rights Reserved by
-                <a href="#" class="text--base ms-2">Flappybet</a>
+                Copyrights &copy; 2025 All rights reserved by
+                <a href="#" class="text--base ms-2">Flappybit</a>
                 </p>
             </div>
             </div>

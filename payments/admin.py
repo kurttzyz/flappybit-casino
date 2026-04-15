@@ -9,7 +9,7 @@ admin.site.register(PaymentMethod)
 
 admin.site.register(TransactionHistory)
 
-    
+
 
 # Custom action to verify payments and update user wallets
 @admin.action(description="Verify payments")
@@ -35,14 +35,14 @@ def verify_payments(modeladmin, request, queryset):
 @admin.register(Deposit)
 class PaymentAdmin(admin.ModelAdmin):
     # Include 'user' in the list display to show it in the admin panel
-    list_display  = ('user', 'reference_number', 'amount', 'payment_method', 'status', 'date_created')
+    list_display  = ('user', 'reference_number', 'promo', 'amount', 'payment_method', 'status', 'date_created')
     list_filter   = ('status', 'payment_method', 'date_created', 'user')  # Add user to the filter options
     list_editable = ('amount',)  # Make 'amount' editable from the list view
     search_fields = ('reference_number', 'payment_method', 'user__username')  # Enable search by user username
     ordering      = ('-date_created',)
 
     # Include 'user' in the form fields and readonly fields as needed
-    fields          = ('user', 'amount', 'reference_number', 'status', 'payment_method', 'date_created')
+    fields          = ('user', 'amount', 'reference_number', 'status', 'payment_method','promo', 'date_created')
     readonly_fields = ('date_created',)
 
     # Define available actions
@@ -71,7 +71,7 @@ class WithdrawalAdmin(admin.ModelAdmin):
                 continue
 
             # Check if wallet balance is sufficient
-            if hasattr(user_wallet, 'balance') and user_wallet.balance >= withdrawal.amount: 
+            if hasattr(user_wallet, 'balance') and user_wallet.balance <= withdrawal.amount: 
                 with transaction.atomic():
                     # Deduct amount from wallet
                     user_wallet.save()

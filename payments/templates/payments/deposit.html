@@ -33,7 +33,7 @@
     <div class="container">
         <div class="account__main__wrapper">
             <div class="account__form__wrapper sign-up">
-              <h3 class="pb-2"> Deposit</h3>
+              <h3 class="pb-2"> Deposit Your Account</h3>
               <form class="account__form form row g-4" method="post">
 
                   {% csrf_token %}
@@ -50,17 +50,27 @@
                       {% endif %}
                   {% endfor %}
                   <div class="col-12">
+                    <p style="text-align: start;">Choose Your Payment Method:</p>
                       <div class="form-group">
                           <div for="email" class="input-pre-icon"><i class="las la-wallet"></i></div>
                           {{form.payment_method}}
                       </div>
                   </div>
                   <div class="col-12">
+                    <p style="text-align: start;">Enter amount:</p>
                       <div class="form-group">
                           <div for="fname" class="input-pre-icon"><i class="las la-keyboard"></i></div>
                           {{form.amount}}
                       </div>
                   </div>
+
+                  <div class="col-12">
+                    <p style="text-align: start;">Choose Your Type of Deposit:</p>
+                    <div class="form-group">
+                        <div for="email" class="input-pre-icon"><i class="las la-keyboard"></i></div>
+                        {{form.promo}}
+                    </div>
+                </div>
                   
                   <div class="col-lg-12">
                       <div class="form-group">
