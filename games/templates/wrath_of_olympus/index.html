@@ -3,31 +3,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>wrath_of_olympus\</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+  <!--
+    viewport meta — critical for mobile:
+    - width=device-width  : use real device pixel width
+    - initial-scale=1.0   : no zoom on load
+    - maximum-scale=1.0   : prevent pinch-zoom breaking layout
+    - user-scalable=no    : locks zoom so the canvas stays fitted
+    - viewport-fit=cover  : fills the safe area on notched iPhones
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+  <!-- iOS fullscreen / status bar -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <!-- Android fullscreen -->
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <title>Wrath of Olympus</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="{% static 'wrath_of_olympus/css/style.css' %}" />
+
+  <style>
+    /* ── Reset ──────────────────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      /* Kill the blue tap-flash on Android */
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      /* Block pull-to-refresh / elastic overscroll on mobile browsers */
+      overscroll-behavior: none;
+      /* Pass all pointer handling to Phaser */
+      touch-action: none;
+    }
+
+    /* ── Phaser mount point ─────────────────────────────────────────────── */
+    #game-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #phaser-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Phaser injects the canvas here — block + no touch so events fire clean */
+    #phaser-container canvas {
+      display: block;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+      /* Sharp pixels on high-DPI screens */
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    /* ── Rotate-to-landscape hint ───────────────────────────────────────────
+       The game is landscape (16:9). Portrait phones see this overlay.
+       CSS shows/hides it automatically via orientation media query.       */
+    #rotate-hint {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.92);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: #f0c040;
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      text-align: center;
+      padding: 32px;
+    }
+
+    #rotate-hint svg {
+      width: 64px;
+      height: 64px;
+      animation: spin-hint 2s ease-in-out infinite;
+      stroke: #f0c040;
+    }
+
+    @keyframes spin-hint {
+      0%, 100% { transform: rotate(0deg); }
+      50%       { transform: rotate(90deg); }
+    }
+
+    #rotate-hint p {
+      font-size: 15px;
+      color: #e8d5a0;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+
+    #rotate-hint button {
+      margin-top: 4px;
+      padding: 10px 28px;
+      background: rgba(240, 192, 64, 0.12);
+      border: 1px solid rgba(240, 192, 64, 0.45);
+      border-radius: 6px;
+      color: #f0c040;
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    /* Show the hint ONLY on narrow portrait screens */
+    @media screen and (orientation: portrait) and (max-width: 600px) {
+      #rotate-hint { display: flex; }
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- Pass Django static URL base to JavaScript -->
+  <!-- Rotate-to-landscape overlay (CSS auto-shows on portrait phones) -->
+  <div id="rotate-hint" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"
+         stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2"/>
+      <path d="M2 9l3-3 3 3"/>
+      <path d="M22 15l-3 3-3-3"/>
+    </svg>
+    <p>Rotate your device to landscape for the best experience</p>
+    <button onclick="document.getElementById('rotate-hint').style.display='none'">
+      Play anyway
+    </button>
+  </div>
+
+  <!-- Django static URL & CSRF token available to all JS -->
   <script>
-    window.STATIC_URL = "{% static '' %}";
-    window.CSRF_TOKEN = "{{ csrf_token }}";
+    window.STATIC_URL  = "{% static '' %}";
+    window.CSRF_TOKEN  = "{{ csrf_token }}";
   </script>
 
   <div id="game-wrapper">
-
-    <!-- Phaser mounts canvas here -->
     <div id="phaser-container"></div>
-
-    {% comment %} <!-- Win message popup (shown by UIScene) -->
-    <div id="win-message">
-      <div class="win-label">WIN!</div>
-      <div class="win-amount" id="win-message-amount">+0</div>
-    </div> {% endcomment %}
   </div>
 
   <!-- Phaser 3 -->

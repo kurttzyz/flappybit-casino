@@ -40,7 +40,6 @@ def register(request):
     if request.method == 'POST':
         form = RegisterationForm(request.POST)
         if form.is_valid():
-<<<<<<< HEAD
             user = form.save(commit=False)
             user.is_active = True
             user.save()
@@ -60,59 +59,6 @@ def register(request):
             # email.send()
             messages.success(request, 'Registeration Successful')
             return redirect('/login')
-=======
-            try:
-                user = form.save(commit=False)
-                user.is_active = False
-                user.save()
-
-                # Handle referral code from GET parameter
-                referral_code = request.GET.get('referral_code')
-                if referral_code:
-                    referring_user = User.objects.filter(referral_code=referral_code).first()
-                    if referring_user and referring_user != user:  # Prevent self-referral
-                        user.referred_by = referring_user
-                        user.save()  # Save the referred_by field
-
-                        referring_user.referrals.add(user)  # Track referrals
-                        referring_user.save()
-
-                        messages.success(
-                            request,
-                            f"Registration successful! You were referred by {referring_user.first_name}."
-                        )
-                    elif referring_user == user:
-                        messages.warning(request, "You cannot use your own referral code.")
-                    else:
-                        messages.warning(request, "Invalid referral code.")
-                else:
-                    messages.success(request, "Registration successful!")
-
-                # Sending email for verification
-                website = get_current_site(request).domain
-                email_subject = 'Email Verification'
-                email_body = render_to_string('email/activation.html', {
-                    'user': user.first_name,
-                    'domain': website,
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                    'token': TokenGenerator.make_token(user)
-                })
-                email = EmailMessage(
-                    subject=email_subject, 
-                    body=email_body,
-                    from_email='TestMail <info.testmail@zohomail.com>', 
-                    to=[user.email]
-                )
-                email.content_subtype = 'html'
-                email.send()
-
-                messages.success(request, 'A verification mail has been sent to your email or spam box.')
-                return redirect('/login')
-            except Exception as e:
-                messages.error(request, f"An error occurred: {e}")
-        else:
-            messages.error(request, "Registration failed. Please check the form.")
->>>>>>> 8fd357047b463a75560c6f6c577a5981f80b24cf
     else:
         form = RegisterationForm()
 
@@ -210,14 +156,8 @@ def history(request):
     args = {'history': total_history}
     return render(request, 'backend/history.html', args)
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 @login_required
-=======
-<<<<<<< HEAD
->>>>>>> 6b2e3bd1e212ea7a3d823cbdd13bc045dadcc523
->>>>>>> 8fd357047b463a75560c6f6c577a5981f80b24cf
 def getbalance(request):
     try:
         user = User.objects.get(email = request.user.email)
@@ -226,13 +166,7 @@ def getbalance(request):
     except:
         return JsonResponse({'bal': 0})
     
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 6b2e3bd1e212ea7a3d823cbdd13bc045dadcc523
->>>>>>> 8fd357047b463a75560c6f6c577a5981f80b24cf
+
 def rewards(request):
     valid_referrals_count = User.objects.filter(referred_by=request.user, has_received_referral_reward=True).count()
 

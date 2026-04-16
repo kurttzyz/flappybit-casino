@@ -60,19 +60,11 @@
                 
                 </div>
                 {% if request.user.is_authenticated %}
-<<<<<<< HEAD
                 <div class="balance ms-auto">{% if balance %} ₱{{balance}} {% else %} ₱0.00 {% endif %}</div>
                 {% endif %}
                 <ul class="menu text-center">
                     <li>
                         <a href="{% url 'moregames' %}"
-=======
-                <div class="balance ms-auto"><i class="las la-wallet"></i>{% if balance %} ₱{{balance}} {% else %} ₱0.00 {% endif %}</div>
-                {% endif %}
-                <ul class="menu text-center">
-                    <li>
-                        <a href="/#games"
->>>>>>> 8fd357047b463a75560c6f6c577a5981f80b24cf
                         >Games
                         <span class="badge badge--sm badge--base text-dark"
                             >NEW</span
