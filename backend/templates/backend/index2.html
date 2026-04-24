@@ -1,0 +1,1455 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from pixner.net/bizera/bizera/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Mar 2026 10:23:55 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>megapaldo</title>
+
+    <link rel="shortcut icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/ara-font.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex header-area">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="/">
+                            <img src="{% static 'assets/images/logo.png' %}" class="fav d-none d-lg-block d-xl-none" alt="fav">
+                           <img src="{% static 'assets/images/logo.png' %}" 
+                            class="logo d-block d-lg-none d-xl-block"
+                            style="width: 160px; height: 160px; object-fit: contain;"
+                            alt="logo">
+                        </a>
+                        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbar-content">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbar-content">
+                            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'games' %}">Games</a>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Lottery</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="/">Lottery</a></li>
+                                        <li><a class="nav-link" href="/">Lottery Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Pages</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="about-us.html">About Us</a></li>
+                                        <li class="dropend sub-navbar">
+                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="outside">Promotions</a>
+                                            <ul class="dropdown-menu sub-menu shadow">
+                                                <li><a class="nav-link" href="/">Promotions</a></li>
+                                                <li><a class="nav-link" href="/">Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropend sub-navbar">
+                                            <a href="javascript:void(0)" class="dropdown-item dropdown-toggle"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="outside">Tournaments</a>
+                                            <ul class="dropdown-menu sub-menu shadow">
+                                                <li><a class="nav-link" href="/">Tournaments</a></li>
+                                                <li><a class="nav-link" href="/">Result</a></li>
+                                                <li><a class="nav-link" href="/">Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="nav-link" href="#">Terms Conditions</a></li>
+                                        <li><a class="nav-link" href="#">Privacy Policy</a></li>
+                                        <li><a class="nav-link" href="#">Error</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown main-navbar">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                        data-bs-toggle="dropdown" data-bs-auto-close="outside">Blog</a>
+                                    <ul class="dropdown-menu main-menu shadow">
+                                        <li><a class="nav-link" href="/">Blog</a></li>
+                                        <li><a class="nav-link" href="/">Blog Second</a></li>
+                                        <li><a class="nav-link" href="/">Blog Details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Contact</a>
+                                </li>
+                            </ul>
+                            <div class="right-area header-action d-flex align-items-center max-un">
+                                <button type="button" class="login" data-bs-toggle="modal" data-bs-target="#loginMod">
+                                    Sign In
+                                </button>
+                                <button type="button" class="cmn-btn reg" data-bs-toggle="modal" data-bs-target="#loginMod">
+                                    Sign Up
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+    <!-- Login Registration start -->
+    <div class="log-reg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="loginMod">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-center">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <ul class="nav log-reg-btn d-none justify-content-around">
+                                    <li class="bottom-area" role="presentation">
+                                        <button class="nav-link" id="regArea-tab" data-bs-toggle="tab"
+                                            data-bs-target="#regArea" type="button" role="tab" aria-controls="regArea"
+                                            aria-selected="false">
+                                            SIGN UP
+                                        </button>
+                                    </li>
+                                    <li class="bottom-area" role="presentation">
+                                        <button class="nav-link active" id="loginArea-tab" data-bs-toggle="tab"
+                                            data-bs-target="#loginArea" type="button" role="tab"
+                                            aria-controls="loginArea" aria-selected="true">
+                                            LOGIN
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="loginArea" role="tabpanel"
+                                        aria-labelledby="loginArea-tab">
+                                        <div class="login-reg-content">
+                                            <div class="modal-body">
+                                                <div class="form-area">
+                                                    <form action="#">
+                                                        <div class="section-text text-center">
+                                                            <h3 class="title">Welcome Back</h3>
+                                                            <p>Not a member ? <a href="javascript:void(0)" class="reg-btn">Register</a></p>
+                                                        </div>
+                                                        <div class="input-area d-flex align-items-center">
+                                                            <img src="{% static 'assets/images/icon/email-icon.png' %}" alt="icon">
+                                                            <input type="text" placeholder="Email">
+                                                        </div>
+                                                        <div class="input-area d-flex align-items-center">
+                                                            <img src="{% static 'assets/images/icon/security.png' %}" alt="icon">
+                                                            <input type="text" placeholder="Password">
+                                                        </div>
+                                                        <div class="checkbox-item d-flex justify-content-between">
+                                                            <label class="checkbox-single d-flex align-items-center">
+                                                                <span class="content-area">
+                                                                    <span class="checkbox-area d-flex">
+                                                                        <input type="checkbox">
+                                                                        <span class="checkmark"></span>
+                                                                    </span>
+                                                                    <span class="item-title d-flex align-items-center">
+                                                                        <span>Remember me</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <a href="javascript:void(0)">Forget Password</a>
+                                                        </div>
+                                                        <div class="btn-area text-center">
+                                                            <a href="javascript:void(0)" class="cmn-btn mt-4">Login
+                                                                <i class="icon-d-right-arrow-2"></i>
+                                                            </a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="regArea" role="tabpanel"
+                                        aria-labelledby="regArea-tab">
+                                        <div class="login-reg-content regMode">
+                                            <div class="modal-body">
+                                                <div class="form-area">
+                                                    <form action="#">
+                                                        <div class="section-text text-center">
+                                                            <h5 class="sub-title">Ready to get started?</h5>
+                                                            <h3 class="title">Welcome Bonus Php 1,500 + 270 FS</h3>
+                                                            <p>Already have an member ? <a href="javascript:void(0)" class="log-btn">Login</a></p>
+                                                        </div>
+                                                        <div class="input-area d-flex align-items-center">
+                                                            <img src="{% static 'assets/images/icon/email-icon.png' %}" alt="icon">
+                                                            <input type="text" placeholder="Email">
+                                                        </div>
+                                                        <div class="input-area d-flex align-items-center">
+                                                            <img src="{% static 'assets/images/icon/security.png' %}" alt="icon">
+                                                            <input type="text" placeholder="Password">
+                                                        </div>
+                                                        <div class="sidebar-single-item">
+                                                            <label class="checkbox-single d-flex">
+                                                                <span class="content-area">
+                                                                    <span class="checkbox-area d-flex">
+                                                                        <input type="checkbox" checked="checked">
+                                                                        <span class="checkmark"></span>
+                                                                    </span>
+                                                                    <span class="item-title d-flex align-items-center">
+                                                                        <span>I am at least 18 years of age and I have read,
+                                                                            accepted and agreed to the <u><a href="javascript:void(0)">Privacy Policy</a>,
+                                                                                Bonus T&C, <a href="javascript:void(0)">Terms and Conditions</a></u>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="checkbox-single d-flex align-items-center">
+                                                                <span class="content-area">
+                                                                    <span class="checkbox-area d-flex">
+                                                                        <input type="checkbox">
+                                                                        <span class="checkmark"></span>
+                                                                    </span>
+                                                                    <span class="item-title d-flex align-items-center">
+                                                                        <span>I want to receive promotions by e-mail.</span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <div class="btn-area text-center">
+                                                                <a href="javascript:void(0)" class="cmn-btn mt-4">Get Start Now
+                                                                    <i class="icon-d-right-arrow-2"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login Registration end -->
+
+    <!-- Banner Section start -->
+    <section class="banner-section index">
+        <div class="overlay">
+            <div class="banner-content">
+                <div class="container wow fadeInUp">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-xl-6 col-lg-6 col-md-8">
+                            <div class="main-content">
+                                <div class="top-area section-text">
+                                    <h5 class="sub-title">Welcome To Gaming World</h5>
+                                    <h1 class="title">Next Level <span>Slots Gaming</span> Platform</h1>
+                                    <p class="xlr">Mind-blowing bonuses. Zero withdrawal fees. Flash-like customer</p>
+                                    <div class="btn-area mt-30">
+                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#loginMod" class="cmn-btn reg">Sign Up
+                                            <i class="icon-d-right-arrow-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="counter-section">
+            <div class="container wow fadeInUp">
+                <div class="main-content">
+                    <div class="row cus-mar">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single-box d-flex align-items-center">
+                                <div class="img-area">
+                                    <img src="{% static 'assets/images/icon/counter-icon-1.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h6>Weekly Draw Prizes</h6>
+                                    <h3>₱<span class="counter">1,350</span></h3>
+                                    <p>Next Draw in <span>04d 21h 46m</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="single-box second d-flex align-items-center">
+                                <div class="img-area">
+                                    <img src="{% static 'assets/images/icon/counter-icon-2.png' %}" alt="icon">
+                                </div>
+                                <div class="text-area">
+                                    <h6>Paid Overall</h6>
+                                    <h3>₱<span class="counter">1,144,624</span></h3>
+                                    <p>Overall Winnings <span>paid to players</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section end -->
+
+    <!-- Popular Game start -->
+    <section class="popular-game">
+        <div class="overlay pt-120 pb-120">
+            <div class="abs-item">
+                <img src="{% static 'assets/images/popular-game-item.png' %}" alt="icon">
+            </div>
+            <div class="container">
+                <div class="row justify-content-center wow fadeInUp">
+                    <div class="col-lg-6 text-center">
+                        <div class="section-text">
+                            <h5 class="sub-title">Easy way for crypto Play</h5>
+                            <h2 class="title">Popular Game</h2>
+                            <p>Unparalleled slots to give lovers of the gambling world an exciting gaming experience par excellence</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row wow fadeInUp">
+                    <div class="games-carousel">
+                        <div class="single">
+                            <div class="single-box">
+                                <img src="{% static 'assets/images/popular-game-image-1.png' %}" alt="Image">
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <img src="{% static 'assets/images/popular-game-image-2.png' %}" alt="Image">
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <img src="{% static 'assets/images/popular-game-image-3.png' %}" alt="Image">
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <img src="{% static 'assets/images/popular-game-image-4.png' %}" alt="Image">
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <img src="{% static 'assets/images/popular-game-image-5.png' %}" alt="Image">
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <img src="{% static 'assets/images/popular-game-image-6.png' %}" alt="Image">
+                            </div>
+                        </div>
+                        <div class="single">
+                            <div class="single-box">
+                                <img src="{% static 'assets/images/popular-game-image-3.png' %}" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="btn-area mt-40 text-center">
+                            <a href="{% url 'games' %}" class="cmn-btn">
+                                All Games
+                                <i class="icon-d-right-arrow-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Popular Game end -->
+
+    <!-- Features start -->
+    <section class="features">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row align-items-center">
+                    <div class="col-lg-9">
+                        <div class="section-top">
+                            <div class="section-text">
+                                <h5 class="sub-title">The Fastest Withdrawals In The Galaxy</h5>
+                                <h2 class="title">Enjoy fast, secure withdrawals at megapaldo.</h2>
+                                <p>Find gamers who care about the same things you do — whether you have shared values or common goals — and connect with them in a meaningful way.</p>
+                            </div>
+                            <div class="btn-area">
+                                <a href="{% url 'games' %}" class="cmn-btn">
+                                    Enter our Universe
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar pt-120">
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box">
+                            <div class="icon-box">
+                                <img src="{% static 'assets/images/icon/features-icon-1.png' %}" alt="Image">
+                            </div>
+                            <h3>100</h3>
+                            <p>Welcome Bonus</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box second">
+                            <div class="icon-box">
+                                <img src="{% static 'assets/images/icon/features-icon-2.png' %}" alt="Image">
+                            </div>
+                            <h3>10%</h3>
+                            <p>Cash Back </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box third">
+                            <div class="icon-box">
+                                <img src="{% static 'assets/images/icon/features-icon-3.png' %}" alt="Image">
+                            </div>
+                            <h3>5000%</h3>
+                            <p>Games</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="single-box fourth">
+                            <div class="icon-box">
+                                <img src="{% static 'assets/images/icon/features-icon-4.png'%}" alt="Image">
+                            </div>
+                            <h3>100%</h3>
+                            <p>Secure & Stable</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features end -->
+
+    <!-- How it works start -->
+    <section class="how-works">
+        <div class="overlay pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">How it works</h5>
+                            <h2 class="title">It’s Really Easy!</h2>
+                            <p>It’s easier than you think.Follow 3 simple easy steps</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cus-mar">
+                    <div class="col-xl-4 col-sm-6">
+                        <div class="single-box text-center">
+                            <div class="thumb">
+                                <img src="{% static 'assets/images/icon/how-works-icon-1.png' %}" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Instant Register</h5>
+                                <p>Instant Register within 5 minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6">
+                        <div class="single-box mid text-center">
+                            <div class="thumb">
+                                <img src="{% static 'assets/images/icon/how-works-icon-2.png' %}" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Fastest Deposit</h5>
+                                <p>Deposit with Fastest Lightning Network</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6">
+                        <div class="single-box text-center">
+                            <div class="thumb">
+                                <img src="{% static 'assets/images/icon/how-works-icon-3.png' %}" alt="icon">
+                            </div>
+                            <div class="text-area">
+                                <h5>Play and get Win</h5>
+                                <p>Get fastest Withdraw with Lightning Network</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it works end -->
+
+    <!-- Drops & Wins start -->
+    <section class="drops-wins">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-xxl-5 col-xl-6 col-md-6">
+                        <div class="section-header">
+                            <h5 class="sub-title">Drops & Wins ( Live Casino)</h5>
+                            <h2 class="title">Easy way for crypto Play</h2>
+                        </div>
+                        <h2 class="currency">₱500.000</h2>
+                        <div class="countdown d-flex align-items-center">
+                            <span>Finishes in:</span>
+                            <h6>
+                                <span class="days">00</span><span class="ref">Days:</span>
+                            </h6>
+                            <h6>
+                                <span class="hours">00</span><span class="ref">Hrs:</span>
+                            </h6>
+                            <h6>
+                                <span class="minutes">00</span><span class="ref">Mins</span>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-5 col-md-6">
+                        <div class="right-box">
+                            <h4 class="mb-30">Deposit and Play</h4>
+                            <form action="#">
+                                <div class="input-field thumb-select d-flex">
+                                    <input type="text" placeholder="0.001">
+                                    <select>
+                                        <option value="1">BTC</option>
+                                        <option value="2">ETH</option>
+                                        <option value="3">LTC</option>
+                                        <option value="3">Gcash</option>
+                                    </select>
+                                </div>
+                                <div class="btn-area mb-30 mt-60">
+                                    <a href="javascript:void(0)" class="cmn-btn w-100">
+                                        Start Playing
+                                        <i class="icon-d-right-arrow-2"></i>
+                                    </a>
+                                </div>
+                                <p>By Clicking you agree with our</p>
+                                <div class="link-area gap-1 d-flex align-items-center justify-content-center">
+                                    <a href="/">Terms and Conditions,</a>
+                                    <a href="/">Privacy Policy</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Drops & Wins end -->
+
+    <!-- Latest Bets start -->
+    {% comment %} <section class="latest-bets">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-header text-center">
+                            <h5 class="sub-title">Latest Winners</h5>
+                            <h2 class="title">Latest Bets</h2>
+                            <p>More and more winners are added every time! To locate the most recent winner's information</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="d-flex justify-content-center">
+                            <ul class="nav" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="all-bets-tab" data-bs-toggle="tab"
+                                        data-bs-target="#all-bets" type="button" role="tab"
+                                        aria-controls="all-bets" aria-selected="true">All Bets</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="high-rollers-tab" data-bs-toggle="tab"
+                                        data-bs-target="#high-rollers" type="button" role="tab"
+                                        aria-controls="high-rollers" aria-selected="false">High Rollers</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="wager-contest-tab" data-bs-toggle="tab" data-bs-target="#wager-contest"
+                                        type="button" role="tab" aria-controls="wager-contest" aria-selected="false">Wager Contest</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content mt-40">
+                            <div class="tab-pane fade show active" id="all-bets" role="tabpanel" aria-labelledby="all-bets-tab">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">User</th>
+                                                <th scope="col">Bet Id</th>
+                                                <th scope="col">Bet Amount</th>
+                                                <th scope="col">Multiplier</th>
+                                                <th scope="col">Game</th>
+                                                <th scope="col">Profit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-1.png" alt="Image">
+                                                        <span>Tom Bass</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-2.png" alt="Image">
+                                                        <span>Karl Day </span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Poker</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-3.png" alt="Image">
+                                                        <span>Jon Arnold</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span class="loss">0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-4.png" alt="Image">
+                                                        <span>Kim Clark</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Slot Machine</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-5.png" alt="Image">
+                                                        <span>Sergio Roy</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/trx.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/trx.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-6.png" alt="Image">
+                                                        <span>Wm Dixon</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Bitclimber</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-7.png" alt="Image">
+                                                        <span>Leo Berry</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span class="loss">0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-8.png" alt="Image">
+                                                        <span>Ross Ryan</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-9.png" alt="Image">
+                                                        <span>Alton Ray</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Poker</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="high-rollers" role="tabpanel" aria-labelledby="high-rollers-tab">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">User</th>
+                                                <th scope="col">Bet Id</th>
+                                                <th scope="col">Bet Amount</th>
+                                                <th scope="col">Multiplier</th>
+                                                <th scope="col">Game</th>
+                                                <th scope="col">Profit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-4.png" alt="Image">
+                                                        <span>Kim Clark</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Slot Machine</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-5.png" alt="Image">
+                                                        <span>Sergio Roy</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/trx.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/trx.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-6.png" alt="Image">
+                                                        <span>Wm Dixon</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Bitclimber</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-1.png" alt="Image">
+                                                        <span>Tom Bass</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-2.png" alt="Image">
+                                                        <span>Karl Day </span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Poker</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-3.png" alt="Image">
+                                                        <span>Jon Arnold</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span class="loss">0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-7.png" alt="Image">
+                                                        <span>Leo Berry</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span class="loss">0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-8.png" alt="Image">
+                                                        <span>Ross Ryan</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-9.png" alt="Image">
+                                                        <span>Alton Ray</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Poker</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="wager-contest" role="tabpanel" aria-labelledby="wager-contest-tab">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">User</th>
+                                                <th scope="col">Bet Id</th>
+                                                <th scope="col">Bet Amount</th>
+                                                <th scope="col">Multiplier</th>
+                                                <th scope="col">Game</th>
+                                                <th scope="col">Profit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-6.png" alt="Image">
+                                                        <span>Wm Dixon</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Bitclimber</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-7.png" alt="Image">
+                                                        <span>Leo Berry</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span class="loss">0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-8.png" alt="Image">
+                                                        <span>Ross Ryan</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-9.png" alt="Image">
+                                                        <span>Alton Ray</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Poker</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-1.png" alt="Image">
+                                                        <span>Tom Bass</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-2.png" alt="Image">
+                                                        <span>Karl Day </span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Poker</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/dash.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-3.png" alt="Image">
+                                                        <span>Jon Arnold</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/etc.png" alt="Image">
+                                                        <span class="loss">0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-4.png" alt="Image">
+                                                        <span>Kim Clark</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Slot Machine</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/btc-icon-2.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/table-image-5.png" alt="Image">
+                                                        <span>Sergio Roy</span>
+                                                    </div>
+                                                </th>
+                                                <td>b799b8724b</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/trx.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                                <td>3.00X</td>
+                                                <td class="game">Dice</td>
+                                                <td>
+                                                    <div class="icon-box">
+                                                        <img src="assets/images/icon/trx.png" alt="Image">
+                                                        <span>0.00000051</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <!-- Latest Bets end -->
+
+    <!-- Total Jackpot start -->
+    <section class="total-jackpot">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-area text-center">
+                            <h5 class="sub-title">Latest Winners</h5>
+                            <h3 class="title">122 163 738,00 EUR</h3>
+                            <div class="btn-area mt-40">
+                                <a href="{% url 'games' %}" class="cmn-btn">
+                                    All Jackpot Games
+                                    <i class="icon-d-right-arrow-2"></i>
+                                </a>
+                            </div>
+                            <div class="icon-img"><img src="{% static 'assets/images/jackpot-icon.png'%}" alt="icon"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="title mb-20 d-flex justify-content-between">
+                            <h4>Jackpot Games</h4>
+                            <a href="javascript:void(0)">Show All</a>
+                        </div>
+                        <div class="jackpot-carousel">
+                            <div class="single-slide">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="{% static 'assets/images/jackpot-image-1.png'%}" alt="icon">
+                                    </div>
+                                    <div class="img-box">
+                                        <img src="{% static 'assets/images/jackpot-image-2.png' %}" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-slide">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="{% static 'assets/images/jackpot-image-3.png'%}" alt="icon">
+                                    </div>
+                                    <div class="img-box">
+                                        <img src="{% static 'assets/images/jackpot-image-1.png'%}" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-slide">
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="{% static 'assets/images/jackpot-image-4.png'%}" alt="icon">
+                                    </div>
+                                    <div class="img-box">
+                                        <img src="{% static 'assets/images/jackpot-image-3.png'%}" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Total Jackpot end -->
+
+    <!-- Refer start -->
+    <section class="refer-section">
+        <div class="overlay pt-120 pb-120">
+            <div class="container wow fadeInUp">
+                <div class="shape-area">
+                    <img src="{% static 'assets/images/refer-shape.png' %}" alt="Image">
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-6 order-lg-0 order-1">
+                        <div class="bg-img d-rtl">
+                            <img src="{% static 'assets/images/refer-illus.png' %}" alt="Image" class="max-un">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="section-text">
+                            <h5 class="sub-title">Earn more with</h5>
+                            <h2 class="title">Refer and Earn</h2>
+                            <p>When you successfully join megapaldo Partners, you will automatically receive an amazing 30% to 50% Revenue Share based on the number of New Depositing Customers you send our way.</p>
+                        </div>
+                        <div class="btn-area">
+                            <a href="javascript:void(0)" class="cmn-btn reg" data-bs-toggle="modal" data-bs-target="#loginMod">
+                                Join Now
+                                <i class="icon-d-right-arrow-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Refer end -->
+
+    <!-- Footer Area Start -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="footer-form">
+                        <div class="section-area mb-30 text-center">
+                            <h4 class="title">To Get Exclusive Benefits</h4>
+                        </div>
+                        <form action="#">
+                            <div class="form-group input-area d-flex align-items-center">
+                                <input type="text" placeholder="Enter your email address">
+                                <button class="btn-area"><img src="{% static 'assets/images/icon/send-icon.png'%}" alt="icon"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area pt-120">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="footer-top d-flex align-items-center justify-content-between">
+                            <a href="/">
+                               <img src="{% static 'assets/images/logo.png' %}" 
+                            class="logo d-block d-lg-none d-xl-block"
+                            style="width: 160px; height: 160px; object-fit: contain;"
+                            alt="logo">
+                            </a>
+                            <div class="footer-box">
+                                <ul class="footer-link d-flex align-items-center gap-4">
+                                    <li><a href="/">About Us</a></li>
+                                    <li><a href="/">Contact</a></li>
+                                    <li><a href="/">Privacy Policy</a></li>
+                                    <li><a href="/">Terms of Service</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-lg-7 d-flex justify-content-center justify-content-lg-start order-lg-0 order-1">
+                            <div class="copyright text-center">
+                                <p>© megapaldo, 2026 All rights reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-5 d-flex justify-content-center justify-content-lg-end">
+                            <div class="social">
+                                <ul class="footer-link gap-2 d-flex align-items-center">
+                                    <li><a href="javascript:void(0)"><i class="fb fab fa-facebook-f"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="ins fab fa-instagram"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="tw fab fa-twitter"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="in fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!--==================================================================-->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/fontawesome.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/slick.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/counter.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/jquery.downCount.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/plugin.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+<script defer src="../../../static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"6e6444122ed94892b6dff27396bb5627","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+
+<!-- Mirrored from pixner.net/bizera/bizera/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Mar 2026 10:24:27 GMT -->
+</html>

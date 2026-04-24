@@ -10,3 +10,7 @@ def wrath_of_olympus(request):
 def candy_slot_machine(request):
     
     return render(request, 'candy_soda/index.html')
+
+
+def royal_masquerade(request):
+    return render(request, 'royal_masquerade/index.html')
