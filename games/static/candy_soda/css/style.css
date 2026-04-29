@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'PT Serif';
+    src: url(../fonts/PTSerif-Regular.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Luckiest Guy';
+    src: url(../fonts/LuckiestGuy-Regular.ttf);
+    font-weight: bold;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+    /* Prevent pull-to-refresh and overscroll on mobile */
+    overscroll-behavior: none;
+    touch-action: none;
+}
+
+#game-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+
+#phaser-container {
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    /* Let Phaser's Scale Manager handle sizing — do NOT force width/height here */
+    /* Prevent default touch behaviors that interfere with pointer events */
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* ── Landscape hint for portrait mobile users ──────────────────────────────
+   The game is 16:9 landscape. On phones held in portrait the canvas gets
+   very small. We nudge the player to rotate, but the game still works. */
+@media screen and (orientation: portrait) and (max-width: 600px) {
+    #rotate-hint {
+        display: flex;
+    }
+}
+
+#rotate-hint {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.88);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: #fff;
+    font-family: 'PT Serif', serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 24px;
+}
+
+#rotate-hint svg {
+    width: 56px;
+    height: 56px;
+    animation: rotate-anim 2s ease-in-out infinite;
+}
+
+@keyframes rotate-anim {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+}
