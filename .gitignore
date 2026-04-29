@@ -12,5 +12,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Ignore all folders named 'static' anywhere
-**/static/
+# # Ignore all folders named 'static' anywhere
+# **/static/
+

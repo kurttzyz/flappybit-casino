@@ -1,0 +1,55 @@
+.success, .error{
+    color: white;
+    text-align: center;
+}
+
+
+/* update registeration form */
+
+#id_first_name, #id_last_name, #id_mobile_number, #id_email, #id_password1, #id_password2, #id_new_password1, #id_new_password2, #id_amount,#id_payment_method, #id_phone_number{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: none;
+    padding-left: 70px;
+    color: white;
+}
+
+select option{
+    color: white;
+    background-color: #300629 !important;
+    outline: none;
+}
+
+#id_first_name:focus, #id_last_name:focus, #id_mobile_number:focus, #id_email:focus, #id_password1:focus, #id_password2:focus #id_new_password1:focus, #id_new_password2:focus, #id_amount:focus,#id_payment_method:focus, id_phone_number:focus{
+    border: 1px solid #98551f !important;
+    outline: none;
+}
+
+
+/* deposit confirm css */
+
+.confirm{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* countdown clock */
+
+#countdown{
+    display: none;
+    text-align: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: yellow;
+}
+
+.balance{
+    font-size: larger;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+
